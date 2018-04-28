@@ -23,6 +23,10 @@ func NewRouter() *gin.Engine {
 	router.GET("/ping", ping.Ping)
 	router.GET("/ping.json", ping.PingJSON)
 
+	router.GET("/panic", func(c *gin.Context) {
+		panic("tes")
+	})
+
 	// Route Group API
 	api := router.Group("/api")
 	{
@@ -33,6 +37,9 @@ func NewRouter() *gin.Engine {
 	apiUser := api.Group("/user")
 	{
 		apiUser.GET("/", userC.Index)
+		apiUser.POST("/", userC.Create)
+		apiUser.GET("/:id", userC.Detail)
+		apiUser.DELETE("/:id", userC.Delete)
 	}
 
 	return router
