@@ -7,10 +7,28 @@
 			"revision": ""
 		},
 		{
+			"checksumSHA1": "4772zXrOaPVeDeSgdiV7Vp4KEjk=",
+			"path": "github.com/dgrijalva/jwt-go",
+			"revision": "06ea1031745cb8b3dab3f6a236daf2b0aa468b7e",
+			"revisionTime": "2018-03-08T23:13:08Z"
+		},
+		{
+			"checksumSHA1": "SvAnbKinPLfP+DoIB/uHdGCKClE=",
+			"path": "github.com/dgrijalva/jwt-go/request",
+			"revision": "06ea1031745cb8b3dab3f6a236daf2b0aa468b7e",
+			"revisionTime": "2018-03-08T23:13:08Z"
+		},
+		{
 			"checksumSHA1": "QeKwBtN2df+j+4stw3bQJ6yO4EY=",
 			"path": "github.com/gin-contrib/sse",
 			"revision": "22d885f9ecc78bf4ee5d72b937e4bbcdc58e8cae",
 			"revisionTime": "2017-01-09T09:34:21Z"
+		},
+		{
+			"checksumSHA1": "AXApcxmpMmki0JwVDzn3FMd3CTw=",
+			"path": "github.com/gin-gonic/contrib/jwt",
+			"revision": "9b830a15f6abcf9e160f47ee01fc00691cc1981a",
+			"revisionTime": "2018-03-20T08:42:56Z"
 		},
 		{
 			"checksumSHA1": "cpELhz30Sco7IBwvI6FyuShnjnQ=",

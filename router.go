@@ -4,7 +4,11 @@ import (
 	"go-gin-api/controllers"
 
 	"github.com/gin-gonic/gin"
+
+	"github.com/gin-gonic/contrib/jwt"
 )
+
+var secret = "MySuperSecretPassword"
 
 // NewRouter Generate New Router
 func NewRouter() *gin.Engine {
@@ -32,10 +36,18 @@ func NewRouter() *gin.Engine {
 
 	}
 
+	// Auth Controller
+	ac := new(controllers.AuthController)
+	lg := api.Group("/auth")
+	{
+		lg.POST("/login", ac.AuthenticateUser)
+	}
+
 	// User Controller
 	uc := new(controllers.UserController)
 	au := api.Group("/user")
 	{
+		au.Use(jwt.Auth(secret))
 		au.GET("/", uc.Index)
 		au.POST("/", uc.Create)
 		au.GET("/:id", uc.Detail)
