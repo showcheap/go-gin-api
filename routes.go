@@ -16,10 +16,24 @@ func NewRouter() *gin.Engine {
 
 	// Controller
 	ping := new(controllers.PingController)
+	userC := new(controllers.UserController)
 
 	// Route List
+	router.GET("/", ping.Welcome)
 	router.GET("/ping", ping.Ping)
 	router.GET("/ping.json", ping.PingJSON)
+
+	// Route Group API
+	api := router.Group("/api")
+	{
+		api.GET("/", ping.Welcome)
+
+	}
+
+	apiUser := api.Group("/user")
+	{
+		apiUser.GET("/", userC.Index)
+	}
 
 	return router
 }

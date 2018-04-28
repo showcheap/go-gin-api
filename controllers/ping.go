@@ -14,3 +14,8 @@ func (p PingController) Ping(c *gin.Context) {
 func (p PingController) PingJSON(c *gin.Context) {
 	c.JSON(200, gin.H{"message": "Pong!"})
 }
+
+// Welcome ...
+func (p PingController) Welcome(c *gin.Context) {
+	c.JSON(200, gin.H{"message": "Welcome"})
+}
