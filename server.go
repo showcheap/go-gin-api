@@ -3,24 +3,25 @@ package main
 import (
 	"fmt"
 	"go-gin-api/db"
-	"go-gin-api/models"
 
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
 
 func main() {
 
-	db, err := db.Init()
+	// Get DB Connection
+	c, err := db.Init()
 
 	if err != nil {
 		fmt.Println("Connect database error: ", err)
 	}
 
 	// Close DB on program exit
-	defer db.Close()
+	defer c.Close()
 
 	// AutoMigrate
-	db.AutoMigrate(&models.User{})
+	db.Migrate()
+	db.Seed()
 
 	r := NewRouter()
 

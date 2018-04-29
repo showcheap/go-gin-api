@@ -2,10 +2,9 @@ package main
 
 import (
 	"go-gin-api/controllers"
+	"go-gin-api/middlewares"
 
 	"github.com/gin-gonic/gin"
-
-	"github.com/gin-gonic/contrib/jwt"
 )
 
 var secret = "MySuperSecretPassword"
@@ -47,7 +46,7 @@ func NewRouter() *gin.Engine {
 	uc := new(controllers.UserController)
 	au := api.Group("/user")
 	{
-		au.Use(jwt.Auth(secret))
+		au.Use(middlewares.JWTAuth())
 		au.GET("/", uc.Index)
 		au.POST("/", uc.Create)
 		au.GET("/:id", uc.Detail)
